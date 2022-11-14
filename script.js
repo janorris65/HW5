@@ -2,44 +2,166 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(document).ready(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //$("#hour-10 button").on("click", function () {
-  //console.log("hello");
-  //});
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page...done
-  // setInterval(currentTime, 1000ms)
-  // function currentTime() {
-  //   var rightnow = dayjs();
-  //   $('currentDay').text(rightnow.format('dddd, MMMM D YYYY, h:mm:ss a'));}
-});
+  //Code Block for Click and store and display
+  $("#hour-9 button").on("click", function () {
+    let value = $(this).prev().val();
+    localStorage.setItem("daySaver9", [
+      value,
+      " Created " + dayjs().format("ddd, M/D/YY, h:mm"),
+    ]);
+    console.log(value, " Created " + dayjs().format("ddd, M/D/YY, h:mm"));
+  });
 
-function currentTime() {
-  var rightnow = dayjs();
-  $("#currentDay").text(rightnow.format("dddd, MMMM D YYYY, h:mm:ss a"));
-}
+  $("#hour-9 button").prev().val(localStorage.getItem("daySaver9"));
+  $("#hour-10 button").on("click", function () {
+    let value = $(this).prev().val();
+    localStorage.setItem("daySaver10", [
+      value,
+      " Created " + dayjs().format("ddd, M/D/YY, h:mm"),
+    ]);
+    console.log(value, " Created " + dayjs().format("ddd, M/D/YY, h:mm"));
+  });
 
-setInterval(currentTime, 1000);
-$("#hour-10 button").on("click", function () {
-  var value = $(this).prev().val();
-  localStorage.setItem("daySaver", [
-    value,
-    "created at " + dayjs().format("dddd, MMMM D YYYY"),
-  ]);
-  console.log(value, "created at" + dayjs().format("dddd, MMMM D YYYY"));
+  $("#hour-10 button").prev().val(localStorage.getItem("daySaver10"));
+  $("#hour-11 button").on("click", function () {
+    let value = $(this).prev().val();
+    localStorage.setItem("daySaver11", [
+      value,
+      " Created " + dayjs().format("ddd, M/D/YY, h:mm"),
+    ]);
+    console.log(value, " Created " + dayjs().format("ddd, M/D/YY, h:mm"));
+  });
+
+  $("#hour-11 button").prev().val(localStorage.getItem("daySaver11"));
+  $("#hour-12 button").on("click", function () {
+    let value = $(this).prev().val();
+    localStorage.setItem("daySaver12", [
+      value,
+      " Created " + dayjs().format("ddd, M/D/YY, h:mm"),
+    ]);
+    console.log(value, " Created " + dayjs().format("ddd, M/D/YY, h:mm"));
+  });
+
+  $("#hour-12 button").prev().val(localStorage.getItem("daySaver12"));
+  $("#hour-13 button").on("click", function () {
+    let value = $(this).prev().val();
+    localStorage.setItem("daySaver13", [
+      value,
+      " Created " + dayjs().format("ddd, M/D/YY, h:mm"),
+    ]);
+    console.log(value, " Created " + dayjs().format("ddd, M/D/YY, h:mm"));
+  });
+
+  $("#hour-13 button").prev().val(localStorage.getItem("daySaver13"));
+  $("#hour-14 button").on("click", function () {
+    let value = $(this).prev().val();
+    localStorage.setItem("daySaver14", [
+      value,
+      " Created " + dayjs().format("ddd, M/D/YY, h:mm"),
+    ]);
+    console.log(value, " Created " + dayjs().format("ddd, M/D/YY, h:mm"));
+  });
+
+  $("#hour-14 button").prev().val(localStorage.getItem("daySaver14"));
+  $("#hour-15 button").on("click", function () {
+    let value = $(this).prev().val();
+    localStorage.setItem("daySaver15", [
+      value,
+      " Created " + dayjs().format("ddd, M/D/YY, h:mm"),
+    ]);
+    console.log(value, " Created " + dayjs().format("ddd, M/D/YY, h:mm"));
+  });
+
+  $("#hour-15 button").prev().val(localStorage.getItem("daySaver15"));
+  $("#hour-16 button").on("click", function () {
+    let value = $(this).prev().val();
+    localStorage.setItem("daySaver16", [
+      value,
+      " Created " + dayjs().format("ddd, M/D/YY, h:mm"),
+    ]);
+    console.log(value, " Created " + dayjs().format("ddd, M/D/YY, h:mm"));
+  });
+
+  $("#hour-16 button").prev().val(localStorage.getItem("daySaver16"));
+  $("#hour-17 button").on("click", function () {
+    let value = $(this).prev().val();
+    localStorage.setItem("daySaver17", [
+      value,
+      " Created " + dayjs().format("ddd, M/D/YY, h:mm"),
+    ]);
+    console.log(value, " Created " + dayjs().format("ddd, M/D/YY, h:mm"));
+  });
+
+  $("#hour-17 button").prev().val(localStorage.getItem("daySaver17"));
+  //Code Block for Color Change
+  if (dayjs().format("H") < 9) {
+    $("#hour-9").removeClass("past").addClass("future");
+  } else if (dayjs().format("H") == 9) {
+    $("#hour-9").removeClass("future").addClass("present");
+  } else if (dayjs().format("H") > 9) {
+    $("#hour-9").removeClass("present").addClass("past");
+  }
+  if (dayjs().format("H") < 10) {
+    $("#hour-10").removeClass("past").addClass("future");
+  } else if (dayjs().format("H") == 10) {
+    $("#hour-10").removeClass("future").addClass("present");
+  } else if (dayjs().format("H") > 10) {
+    $("#hour-10").removeClass("present").addClass("past");
+  }
+  if (dayjs().format("H") < 11) {
+    $("#hour-11").removeClass("past").addClass("future");
+  } else if (dayjs().format("H") == 11) {
+    $("#hour-11").removeClass("future").addClass("present");
+  } else if (dayjs().format("H") > 11) {
+    $("#hour-11").removeClass("present").addClass("past");
+  }
+  if (dayjs().format("H") < 12) {
+    $("#hour-12").removeClass("past").addClass("future");
+  } else if (dayjs().format("H") == 12) {
+    $("#hour-12").removeClass("future").addClass("present");
+  } else if (dayjs().format("H") > 12) {
+    $("#hour-12").removeClass("present").addClass("past");
+  }
+  if (dayjs().format("H") < 13) {
+    $("#hour-13").removeClass("past").addClass("future");
+  } else if (dayjs().format("H") == 13) {
+    $("#hour-13").removeClass("future").addClass("present");
+  } else if (dayjs().format("H") > 13) {
+    $("#hour-13").removeClass("present").addClass("past");
+  }
+  if (dayjs().format("H") < 14) {
+    $("#hour-14").removeClass("past").addClass("future");
+  } else if (dayjs().format("H") == 14) {
+    $("#hour-14").removeClass("future").addClass("present");
+  } else if (dayjs().format("H") > 14) {
+    $("#hour-14").removeClass("present").addClass("past");
+  }
+  if (dayjs().format("H") < 15) {
+    $("#hour-15").removeClass("past").addClass("future");
+  } else if (dayjs().format("H") == 15) {
+    $("#hour-15").removeClass("future").addClass("present");
+  } else if (dayjs().format("H") > 15) {
+    $("#hour-15").removeClass("present").addClass("past");
+  }
+  if (dayjs().format("H") < 16) {
+    $("#hour-16").removeClass("past").addClass("future");
+  } else if (dayjs().format("H") == 16) {
+    $("#hour-16").removeClass("future").addClass("present");
+  } else if (dayjs().format("H") > 16) {
+    $("#hour-16").removeClass("present").addClass("past");
+  }
+  if (dayjs().format("H") < 17) {
+    $("#hour-17").removeClass("past").addClass("future");
+  } else if (dayjs().format("H") == 17) {
+    $("#hour-17").removeClass("future").addClass("present");
+  } else if (dayjs().format("H") > 17) {
+    $("#hour-17").removeClass("present").addClass("past");
+  }
+  // Code Block for Time Display
+  function currentTime() {
+    var rightnow = dayjs();
+    $("#currentDay").text(rightnow.format("dddd, MMMM D YYYY, h:mm:ss a"));
+  }
+
+  setInterval(currentTime, 1000);
 });
