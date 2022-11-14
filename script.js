@@ -1,6 +1,3 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
 $(document).ready(function () {
   //Code Block for Click and store and display
   $("#hour-9 button").on("click", function () {
@@ -164,4 +161,17 @@ $(document).ready(function () {
   }
 
   setInterval(currentTime, 1000);
+  // Code Block to remove storage
+  $("#Clearbtn").on("click", function () {
+    localStorage.removeItem("daySaver9");
+    localStorage.removeItem("daySaver10");
+    localStorage.removeItem("daySaver11");
+    localStorage.removeItem("daySaver12");
+    localStorage.removeItem("daySaver13");
+    localStorage.removeItem("daySaver14");
+    localStorage.removeItem("daySaver15");
+    localStorage.removeItem("daySaver16");
+    localStorage.removeItem("daySaver17");
+    location.reload();
+  });
 });
